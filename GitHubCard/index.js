@@ -49,7 +49,21 @@ followersArray.forEach(item => {
   })
 })
 
-
+axios.get(followersArray[0])
+  .then(response => {
+    axios.get(response.data["followers_url"])
+      .then(response => {
+        response.data.forEach(item => {
+          cardMaker(item);
+        })
+      })
+      .catch(err => {
+        console.log(`Error: ${err}`);
+      })
+  })
+  .catch(err => {
+    console.log(`Error: ${err}`);
+  })
 
 /*
   STEP 3: Create a function that accepts a single object as its only argument.
