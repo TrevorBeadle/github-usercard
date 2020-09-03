@@ -54,7 +54,10 @@ axios.get(followersArray[0])
     axios.get(response.data["followers_url"])
       .then(response => {
         response.data.forEach(item => {
-          cardMaker(item);
+          axios.get(item["url"])
+            .then(response => {
+              cardMaker(response.data);
+            })
         })
       })
       .catch(err => {
