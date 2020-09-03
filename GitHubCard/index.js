@@ -56,7 +56,59 @@ axios.get('https://api.github.com/users/TrevorBeadle')
       </div>
     </div>
 */
+function cardMaker(object) {
+  // creating all elements needed
+  const card = document.createElement('div');
+  card.classList.add('card');
 
+  const img = document.createElement('img');
+  img.src = object.avatar_url;
+  img.alt = `${object.name}'s Avatar`
+
+  const cardInfo = document.createElement('div');
+  cardInfo.classList.add('card-info');
+
+  const name = document.createElement('h3');
+  name.classList.add('name');
+  name.textContent = object.name;
+
+  const username = document.createElement('p');
+  username.classList.add('username');
+  username.textContent = (object.username);
+
+  const location = document.createElement('p');
+  location.textContent = `Location: ${object.location}`;
+
+  const profile = document.createElement('p');
+  const address = document.createElement('a');
+  address.href = object.html_url;
+  address.textContent = object.html_url;
+
+  const followers = document.createElement('p');
+  followers.textContent = `Followers: ${object.followers}`;
+
+  const following = document.createElement('p');
+  following.textContent = `Following: ${object.following}`;
+
+  const bio = document.createElement('p');
+  bio.textContent = `Bio: ${object.bio}`;
+
+  // adding elements together in the format above
+  card.append(img);
+  card.append(cardInfo);
+  cardInfo.append(name);
+  cardInfo.append(username);
+  cardInfo.append(location);
+  cardInfo.append(profile);
+  profile.append(address);
+  cardInfo.append(followers);
+  cardInfo.append(following);
+  cardInfo.append(bio);
+
+  const cards = document.querySelector('.cards');
+  cards.append(card);
+  return cards;
+}
 
 /*
   List of LS Instructors Github username's:
