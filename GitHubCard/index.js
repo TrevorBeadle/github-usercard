@@ -7,7 +7,9 @@ import axios from 'axios';
     https://api.github.com/users/<your name>
 */
 
-axios.get('https://api.github.com/users/TrevorBeadle')
+axios.get('https://api.github.com/users/TrevorBeadle').then(response => {
+  cardMaker(response.data);
+});
 
 
 
