@@ -36,6 +36,18 @@ axios.get('https://api.github.com/users/TrevorBeadle').then(response => {
     Using that array, iterate over it, requesting data for each user, creating a new card for each
     user, and adding that card to the DOM.
 */
+const followersArray = ['https://api.github.com/users/tetondan',
+  'https://api.github.com/users/dustinmyers',
+  'https://api.github.com/users/justsml',
+  'https://api.github.com/users/luishrd',
+  'https://api.github.com/users/bigknell',
+]
+
+followersArray.forEach(item => {
+  axios.get(item).then(response => {
+    cardMaker(response.data);
+  })
+})
 
 
 
