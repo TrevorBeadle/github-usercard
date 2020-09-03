@@ -105,7 +105,7 @@ function cardMaker(object) {
 
   const username = document.createElement('p');
   username.classList.add('username');
-  username.textContent = (object.username);
+  username.textContent = (object.login);
 
   const location = document.createElement('p');
   location.textContent = `Location: ${object.location}`;
